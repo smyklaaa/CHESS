@@ -25,7 +25,7 @@ public abstract class ChessPieces {
     }
 
 
-    abstract public void make_move(int where_is_now_x,int where_is_now_y,
+    abstract public boolean make_move(int where_is_now_x,int where_is_now_y,
                                    int where_to_go_x, int where_to_go_y, ChessPieces current_figure,
                                    Chessboard chessboard);
 

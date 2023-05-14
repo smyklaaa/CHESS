@@ -32,7 +32,7 @@ public class Pawn extends ChessPieces{
             }
 
             //sprawdzenie czy nie wyjdzie poza szachownice
-            if((where_is_now_y-1 != -1) && (where_is_now_y+1 != 8)){
+            if((where_is_now_y-1 != -1) && (where_is_now_y+1 != 8)){                                                      //naprawieni bicia skrajnych pionkow
 
                 //sprawdzanie bicia w lewo
                 if(chessboard.fields[where_is_now_x+1][where_is_now_y-1].
@@ -158,7 +158,7 @@ public class Pawn extends ChessPieces{
     }
 
     @Override
-    public void make_move(int where_is_now_x,int where_is_now_y,
+    public boolean make_move(int where_is_now_x,int where_is_now_y,
                              int where_to_go_x, int where_to_go_y, ChessPieces current_figure, Chessboard chessboard){
 
         this.check_available_moves(where_is_now_x,where_is_now_y,where_to_go_x,where_to_go_y, chessboard);
@@ -176,13 +176,14 @@ public class Pawn extends ChessPieces{
                 this.if_did_move = true;
                 this.available_moves.clear();
 
-
+                return true;
             }
             if(if_did_move == false){
                 System.out.println("Ten ruch nie jest dostepny dla figury");
 
             }
         }
+        return false;
 
 
     }

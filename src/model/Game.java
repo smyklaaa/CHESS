@@ -23,27 +23,29 @@ public class Game {
         while(this.is_game_on){
 
             chessboard.show_chess_board();
-
+            boolean if_moveed = false;
             if(turn%2 == 0){
                 System.out.println();
                 System.out.println("Ruch białych");
-                where_to_go(this.choosing_figure(true));
+                if_moveed = where_to_go(this.choosing_figure(true));
 
             }
             else {
                 System.out.println();
                 System.out.println("Ruch czarnych");
                 System.out.println("Podaj jaki ruch chcesz wykonac: ");
-                where_to_go(this.choosing_figure(false));
+                if_moveed = where_to_go(this.choosing_figure(false));
             }
 
-            turn++;
+            if(if_moveed){
+                turn++;
+            }
         }
 
     }
 
     //funkcja wyznaczajaca na jakie pole ma ruszyc sie pionek
-    public void where_to_go(Field current_field){
+    public boolean where_to_go(Field current_field){
         Scanner input = new Scanner(System.in);
         Scanner input_letter = new Scanner((System.in));
 
@@ -61,7 +63,7 @@ public class Game {
         int x_current_position = current_field.x_position;
         int y_current_position = current_field.y_position;
         ChessPieces current_piece = current_field.which_piece_on_field;
-        current_piece.make_move(x_current_position,y_current_position,
+        return current_piece.make_move(x_current_position,y_current_position,
                 first_position_where_to_go,second_position_where_to_go_int, current_piece,chessboard);
 
 

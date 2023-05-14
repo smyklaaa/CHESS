@@ -18,7 +18,7 @@ public class Bishop extends ChessPieces {
     }
 
     @Override
-    public void make_move(int where_is_now_x,int where_is_now_y,
+    public boolean make_move(int where_is_now_x,int where_is_now_y,
                           int where_to_go_x, int where_to_go_y, ChessPieces current_figure, Chessboard chessboard){
 
         this.check_available_moves(where_is_now_x,where_is_now_y,where_to_go_x,where_to_go_y, chessboard);
@@ -37,6 +37,7 @@ public class Bishop extends ChessPieces {
                 chessboard.fields[where_to_go_x][where_to_go_y].which_piece_on_field = current_figure;
                 chessboard.fields[where_is_now_x][where_is_now_y].which_piece_on_field = null;
                 this.available_moves.clear();
+                return true;
 
 
             }else {
@@ -44,7 +45,7 @@ public class Bishop extends ChessPieces {
 
 
             }
-        }
+        }return false;
 
 
     }
