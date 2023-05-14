@@ -70,7 +70,7 @@ public class Rook extends ChessPieces{
 
         //wyszukiwanie wszystkich ruchow w dol
         i = 1;
-        while(where_is_now_x-i>0 && chessboard.fields[where_is_now_x-i][where_is_now_y].which_piece_on_field == null){
+        while(where_is_now_x-i>=0 && chessboard.fields[where_is_now_x-i][where_is_now_y].which_piece_on_field == null){
             String available_move = (where_is_now_x -i) + ""+(where_is_now_y) ;
             available_moves.add(available_move);
             i++;
@@ -102,7 +102,7 @@ public class Rook extends ChessPieces{
 
         //wyszukiwanie wszystkich ruchow w lewo
         i= 1;
-        while(where_is_now_y-i>0 && chessboard.fields[where_is_now_x][where_is_now_y-i].which_piece_on_field == null){            //tylko tu zmienia m
+        while(where_is_now_y-i>=0 && chessboard.fields[where_is_now_x][where_is_now_y-i].which_piece_on_field == null){            //tylko tu zmienia m
             String available_move = (where_is_now_x) + ""+(where_is_now_y-i) ;
             available_moves.add(available_move);
             i++;
